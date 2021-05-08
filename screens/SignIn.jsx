@@ -5,46 +5,40 @@ import {
 
 import PropTypes from 'prop-types';
 
-const signUpURL = '';
+const signInUrl = '';
 
-export default function SignUp({ navigation }) {
-  const [name, setName] = useState('');
+export default function SignIn({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function clearFields() {
-    setName('');
     setEmail('');
     setPassword('');
   }
 
-  async function sendSignUpRequest() {
+  async function sendSignInRequest() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name, email, password,
+        email, password,
       }),
     };
 
-    return (await fetch(signUpURL, requestOptions)).json();
+    return (await fetch(signInUrl, requestOptions)).json();
   }
 
-  async function onSignUp() {
+  async function onSignIn() {
     clearFields();
-    const signUpResponse = await sendSignUpRequest();
+    const signInResponse = await sendSignInRequest();
 
     // Do something with response from backend
   }
 
   return (
     <SafeAreaView>
-      <Text>Sign Up</Text>
+      <Text>Sign In</Text>
 
-      <TextInput
-        label="Name"
-        onChange={setName}
-      />
       <TextInput
         label="Email"
         onChange={setEmail}
@@ -55,9 +49,14 @@ export default function SignUp({ navigation }) {
       />
       <Button
         title="Create"
-        onPress={onSignUp}
+        onPress={onSignIn}
       />
     </SafeAreaView>
   );
 }
 
+SignIn.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
