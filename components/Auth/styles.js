@@ -20,7 +20,7 @@ const authStyles = StyleSheet.create({
 
     seprator: {
         marginVertical: 30,
-    }
+    },
 });
 
 export default authStyles;

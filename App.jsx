@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignUp from './components/Auth/SignUp';
 import SignIn from './components/Auth/SignIn';
 import TitlePage from './components/TitlePage';
+import Settings from './components/Settings';
 
 export default function App() {
     const Stack = createStackNavigator();
@@ -36,6 +37,13 @@ export default function App() {
                     component={SignIn}
                     options={{
                         title: 'Sign In',
+                    }}
+                />
+                <Stack.Screen
+                    name="Settings"
+                    component={Settings}
+                    options={{
+                        title: 'Settings',
                     }}
                 />
             </Stack.Navigator>

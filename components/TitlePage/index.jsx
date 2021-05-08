@@ -18,6 +18,7 @@ const TitlePage = ({ navigation }) => {
                 </View>
 
                 <Button style={styles.navButton} title="Check Orders" onPress={handleCheckOrders} />
+                <Button style={styles.navButton} title="Settings" onPress={() => { navigation.navigate('Settings'); }} />
                 <Button style={styles.navButton} title="Find out more" />
             </ImageBackground>
         </View>

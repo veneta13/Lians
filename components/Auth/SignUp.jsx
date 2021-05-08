@@ -39,19 +39,22 @@ export default function SignUp({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Sign Up</Text>
             <View style={styles.formData}>
+                <Text>{name}</Text>
                 <Input
+                    value={name}
                     label="Name"
-                    onChange={setName}
+                    onChangeText={setName}
                 />
                 <Input
+                    value={email}
                     label="Email"
-                    onChange={setEmail}
+                    onChangeText={setEmail}
                 />
                 <Input
+                    value={password}
                     label="Password"
-                    onChange={setPassword}
+                    onChangeText={setPassword}
                 />
 
             </View>
