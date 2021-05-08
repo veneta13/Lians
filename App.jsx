@@ -1,34 +1,54 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import SignUp from './screens/SignUp';
+import SignUp from './components/Auth/SignUp';
+import SignIn from './components/Auth/SignIn';
+import TitlePage from './components/TitlePage';
 
 export default function App() {
-  const Stack = createStackNavigator();
+    const Stack = createStackNavigator();
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={}
-        />
-        <Stack.Screen 
-          name="Sign Up"
-          component={SignUp}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer style={styles.container}>
+            <StatusBar style="auto" />
+            <Stack.Navigator
+                initialRouteName="TitlePage"
+            >
+                <Stack.Screen
+                    name="TitlePage"
+                    component={TitlePage}
+                    options={{
+                        title: 'Home',
+                        headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="SignUp"
+                    component={SignUp}
+                    options={{
+                        title: 'Sign Up',
+                    }}
+                />
+                <Stack.Screen
+                    name="SignIn"
+                    component={SignIn}
+                    options={{
+                        title: 'Sign In',
+                    }}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        marginHorizontal: 300,
+        backgroundColor: '#f00',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
