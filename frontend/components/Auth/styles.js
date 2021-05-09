@@ -21,6 +21,12 @@ const authStyles = StyleSheet.create({
     seprator: {
         marginVertical: 30,
     },
+    error: {
+        color: 'red',
+        marginBottom: 50,
+        paddingHorizontal: 10,
+        fontWeight: 'bold',
+    },
 });
 
 export default authStyles;

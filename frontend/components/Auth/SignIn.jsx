@@ -5,15 +5,18 @@ import {
 import { Button, Input } from 'react-native-elements';
 
 import PropTypes from 'prop-types';
+import * as SecureStore from 'expo-secure-store';
+import { API_URL } from '../../env';
 import LineSandwich from '../LineSandwich';
 
 import styles from './styles';
 
-const signInUrl = '';
+const signInUrl = `${API_URL}/login`;
 
 export default function SignIn({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     function clearFields() {
         setEmail('');
@@ -35,11 +38,14 @@ export default function SignIn({ navigation }) {
     async function onSignIn() {
         clearFields();
         const signInResponse = await sendSignInRequest();
-        if (signInResponse.ok) {
-            // Proceed to home page
-            navigation.navigate('Home');
+        if (signInResponse.token) {
+            // Registration succesful
+            // Store token somewhere secure
+            SecureStore.setItemAsync('token', signInResponse.token, {});
+            navigation.navigate('OrderLocator');
         } else {
-            // Render errors
+            // Registration failed
+            setErrorMessage(signInResponse.message);
         }
 
         // Do something with response from backend
@@ -49,6 +55,7 @@ export default function SignIn({ navigation }) {
         <View style={styles.container}>
             <Text style={styles.header}>Sign In</Text>
             <View style={styles.formData}>
+                {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null }
                 <Input label="Email" onChange={setEmail} />
                 <Input label="Password" onChange={setPassword} />
             </View>
