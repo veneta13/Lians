@@ -7,6 +7,7 @@ import SignUp from './components/Auth/SignUp';
 import SignIn from './components/Auth/SignIn';
 import TitlePage from './components/TitlePage';
 import Settings from './components/Settings';
+import OrderLocator from './components/OrderLocator/OrderLocator';
 
 export default function App() {
     const Stack = createStackNavigator();
@@ -19,7 +20,7 @@ export default function App() {
             >
                 <Stack.Screen
                     name="TitlePage"
-                    component={TitlePage}
+                    component={OrderLocator}
                     options={{
                         title: 'Home',
                         headerShown: false,
