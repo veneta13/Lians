@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Input, Button } from 'react-native-elements';
-import * as SecureStore from 'expo-secure-store';
 import {
     View, Text,
 } from 'react-native';
@@ -8,6 +7,7 @@ import LineSandwich from '../LineSandwich';
 import { API_URL } from '../../env';
 
 import styles from './styles';
+import * as Store from '../../store';
 
 const signUpURL = `${API_URL}/register`;
 
@@ -41,7 +41,7 @@ export default function SignUp({ navigation }) {
         if (signUpResponse.token) {
             // Registration succesful
             // Store token somewhere secure
-            SecureStore.setItemAsync('token', signUpResponse.token, {});
+            Store.setItem('token', signUpResponse.token, {});
             navigation.navigate('OrderLocator');
         } else {
             // Registration failed

@@ -5,7 +5,7 @@ import {
 import { Button, Input } from 'react-native-elements';
 
 import PropTypes from 'prop-types';
-import * as SecureStore from 'expo-secure-store';
+import * as Store from '../../store';
 import { API_URL } from '../../env';
 import LineSandwich from '../LineSandwich';
 
@@ -41,7 +41,7 @@ export default function SignIn({ navigation }) {
         if (signInResponse.token) {
             // Registration succesful
             // Store token somewhere secure
-            SecureStore.setItemAsync('token', signInResponse.token, {});
+            Store.setItem('token', signInResponse.token, {});
             navigation.navigate('OrderLocator');
         } else {
             // Registration failed
