@@ -9,13 +9,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingVertical: 30,
+        paddingHorizontal: 30,
     },
     setting: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 20,
-        width: '50vw',
+        width: '100%',
     },
 });
 
