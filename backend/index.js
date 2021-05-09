@@ -10,8 +10,12 @@ const User = require("./models/User");
 const Authentication = require("./apiRoutes/Authentication");
 
 // WE NEED TO SET THIS UP AS ENV VARIABLE
-const client = new MongoClient("mongodb+srv://aryan:<password>@cluster0.39ko8.azure.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useUnifiedTopology: true});
+const client = new MongoClient("mongodb+srv://aryan:abcd1234@cluster0.39ko8.azure.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useUnifiedTopology: true});
 client.connect();
+
+app.use(cors({
+    origin: 'http://localhost:19006',
+}));
 
 app.post('/register', (req, res) => {
     Authentication.createUser(req, res, client.db("myFirstDatabase"), User)
