@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingVertical: 30,
+        paddingTop: 50
     },
 });
 

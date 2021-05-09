@@ -4,16 +4,16 @@ import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 
-export default function App() {
+export default function OrderLocator(props) {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const warehouses = [
-    { latitude:25 , longitude:73, title: "Warehouse X", product: "Mail" }, 
-    { latitude:28 , longitude:73, title: "Warehouse Y", product: "No products" }, 
-    { latitude:27 , longitude:77, title: "Warehouse Z", product: "No products" }, 
-    { latitude:28 , longitude:74, title: "Warehouse A", product: "No products" }, 
-    { latitude:23 , longitude:79, title: "Warehouse B", product: "Cycle Blaze" },
-    { latitude:28.636070 , longitude:77.342990, title: "Warehouse C", product: "Hair Spray" }];
+  { latitude:25 , longitude:73, title: "Warehouse X", product: "Mail" }, 
+  { latitude:28 , longitude:73, title: "Warehouse Y", product: "No products" }, 
+  { latitude:27 , longitude:77, title: "Warehouse Z", product: "No products" }, 
+  { latitude:28 , longitude:74, title: "Warehouse A", product: "No products" }, 
+  { latitude:23 , longitude:79, title: "Warehouse B", product: "Cycle Blaze" },
+  { latitude:28.636070 , longitude:77.342990, title: "Warehouse C", product: "Hair Spray" }];
 
   function distance(lat1, lat2, lon1, lon2) {
     var p = 0.017453292519943295;    // Math.PI / 180
@@ -53,7 +53,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Warehouses near you!</Text>
+      <Text style={styles.paragraph}>Warehouses near you! </Text>
       { location ? 
         <MapView 
         style={styles.map}
@@ -108,10 +108,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    paddingTop: 100,
+    fontSize: 20
   },
   paragraph: {
-    fontSize: 18,
+    fontSize: 28,
     textAlign: 'center',
+    paddingBottom: 30,
+    paddingTop: 50
   },
   map: {
     width: Dimensions.get('window').width,
