@@ -7,7 +7,7 @@ import SignUp from './components/Auth/SignUp';
 import SignIn from './components/Auth/SignIn';
 import TitlePage from './components/TitlePage';
 import Settings from './components/Settings';
-import OrderLocator from './components/OrderLocator';
+// import OrderLocator from './components/OrderLocator';
 import Guide from './components/Guide';
 
 export default function App() {
@@ -55,13 +55,13 @@ export default function App() {
                         title: 'Settings',
                     }}
                 />
-                <Stack.Screen
+                {/* <Stack.Screen
                     name="OrderLocator"
                     component={OrderLocator}
                     options={{
                         title: 'Order Locator',
                     }}
-                />
+                /> */}
             </Stack.Navigator>
         </NavigationContainer>
     );

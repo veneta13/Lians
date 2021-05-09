@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const authStyles = StyleSheet.create({
     container: {
-        paddingHorizontal: 30,
+        paddingHorizontal: '30vw',
         paddingVertical: 30,
         width: '100%',
     },

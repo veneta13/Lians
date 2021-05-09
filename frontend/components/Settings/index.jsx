@@ -10,6 +10,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 30,
     },
+    setting: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 20,
+        width: '50vw',
+    },
 });
 
 export default function Settings() {
@@ -18,17 +25,21 @@ export default function Settings() {
 
     return (
         <View style={styles.container}>
-            <Text>Send Notifications</Text>
-            <Switch
-                value={sendNotifications}
-                onValueChange={setSendNotifications}
-            />
+            <View style={styles.setting}>
+                <Text>Send Notifications</Text>
+                <Switch
+                    value={sendNotifications}
+                    onValueChange={setSendNotifications}
+                />
+            </View>
 
-            <Text>Send Mail</Text>
-            <Switch
-                value={sendEmails}
-                onValueChange={setSendEmails}
-            />
+            <View style={styles.setting}>
+                <Text>Send Mail</Text>
+                <Switch
+                    value={sendEmails}
+                    onValueChange={setSendEmails}
+                />
+            </View>
         </View>
     );
 }
