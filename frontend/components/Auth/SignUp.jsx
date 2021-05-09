@@ -68,6 +68,7 @@ export default function SignUp({ navigation }) {
                     value={password}
                     label="Password"
                     onChangeText={setPassword}
+                    secureTextEntry
                 />
 
             </View>

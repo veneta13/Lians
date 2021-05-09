@@ -57,7 +57,7 @@ export default function SignIn({ navigation }) {
             <View style={styles.formData}>
                 {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null }
                 <Input label="Email" onChange={setEmail} />
-                <Input label="Password" onChange={setPassword} />
+                <Input label="Password" onChange={setPassword} secureTextEntry />
             </View>
             <Button title="Sign In" onPress={onSignIn} />
             <View style={styles.seprator}>
