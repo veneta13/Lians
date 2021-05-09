@@ -21,7 +21,7 @@ export default function App() {
             >
                 <Stack.Screen
                     name="TitlePage"
-                    component={OrderLocator}
+                    component={TitlePage}
                     options={{
                         title: 'Home',
                         headerShown: false,
