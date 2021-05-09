@@ -8,6 +8,7 @@ import SignIn from './components/Auth/SignIn';
 import TitlePage from './components/TitlePage';
 import Settings from './components/Settings';
 import OrderLocator from './components/OrderLocator';
+import Guide from './components/Guide';
 
 export default function App() {
     const Stack = createStackNavigator();
@@ -24,6 +25,13 @@ export default function App() {
                     options={{
                         title: 'Home',
                         headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="Guide"
+                    component={Guide}
+                    options={{
+                        title: 'Guide',
                     }}
                 />
                 <Stack.Screen
