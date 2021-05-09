@@ -6,7 +6,7 @@ import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 
-export default function App() {
+export default function OrderLocator(props) {
     const [location, setLocation] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
     const warehouses = [
@@ -33,7 +33,8 @@ export default function App() {
         const p = 0.017453292519943295; // Math.PI / 180
         const c = Math.cos;
         const a = 0.5 - c((lat2 - lat1) * p) / 2
-            + c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p)) / 2;
+            + c(lat1 * p) * c(lat2 * p)
+            * (1 - c((lon2 - lon1) * p)) / 2;
 
         return (12742 * Math.asin(Math.sqrt(a))).toString(); // 2 * R; R = 6371 km
     }
@@ -66,7 +67,7 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <Text>Warehouses near you!</Text>
+            <Text style={styles.paragraph}>Warehouses near you! </Text>
             { location
                 ? (
                     <MapView
@@ -88,12 +89,7 @@ export default function App() {
                             description="Your Location"
                         />
                         {warehouses.map((marker, index) => (
-                            parseFloat(distance(
-                                location.coords.latitude,
-                                marker.latitude,
-                                location.coords.longitude,
-                                marker.longitude,
-                            )) > 5
+                            parseFloat(distance(location.coords.latitude, marker.latitude, location.coords.longitude, marker.longitude)) > 5
                                 ? (
                                     <Marker
                                         key={index}
@@ -133,10 +129,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
+        paddingTop: 100,
+        fontSize: 20,
     },
     paragraph: {
-        fontSize: 18,
+        fontSize: 28,
         textAlign: 'center',
+        paddingBottom: 30,
+        paddingTop: 50,
     },
     map: {
         width: Dimensions.get('window').width,

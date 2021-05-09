@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "226486933463",
+    "project_id": "tohacks-313205",
+    "storage_bucket": "tohacks-313205.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226486933463:android:ffcdc2abc7437c92e1dd92",
+        "android_client_info": {
+          "package_name": "com.android.lians"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226486933463-feccsmhl81en7s1c7s59jrvsj22h1s7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9QQAqSuRhtFZO0BG0PfC3d71mNY7tEJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226486933463-feccsmhl81en7s1c7s59jrvsj22h1s7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
